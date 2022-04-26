@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-test-react/data": ["libs/data/src/index.ts"]
+      "@nx-test-react/data": ["libs/data/src/index.ts"],
+      "@nx-test-react/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
