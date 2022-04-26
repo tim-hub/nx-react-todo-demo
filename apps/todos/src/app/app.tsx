@@ -1,14 +1,37 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+import { useState } from 'react';
 
-export function App() {
+interface Todo {
+  title: string;
+}
+
+export const App = () => {
+  const [todos, setTodos] = useState<Todo[]>([
+    { title: 'Todo 1' },
+    { title: 'Todo 2' },
+  ]);
+
+  function addTodo() {
+    setTodos([
+      ...todos,
+      {
+        title: `New todo ${Math.floor(Math.random() * 1000)}`,
+      },
+    ]);
+  }
+
   return (
     <>
-      <NxWelcome title="todos" />
-      <div />
+      <h1>Todos</h1>
+      <ul>
+        {todos.map((t) => (
+          <li className={'todo'}>{t.title}</li>
+        ))}
+      </ul>
+      <button id={'add-todo'} onClick={addTodo}>
+        Add Todo
+      </button>
     </>
   );
-}
+};
 
 export default App;
